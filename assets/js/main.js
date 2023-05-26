@@ -16,18 +16,14 @@ let monate = [
 
 
 const apiKey = "a6e012a98e34998e8b669a4195e190cb";
-
 const section = document.querySelector("section");
-
 const inputWrapper = document.querySelector(".input-wrapper");
-
-const button = document.querySelector("button");
-
+const figure = document.querySelector("figure");
 
 const showWeather = () => {
     event.preventDefault();
     inputWrapper.style.top = "-50rem";
-
+    figure.style.bottom = "0";
     section.innerHTML = "";
 
     const cityInput = document.querySelector("#cityInput").value;
@@ -120,7 +116,28 @@ const showWeather = () => {
                 }
             }
 
-            const weatherOutput = `<h3>${city}</h3><p>${day} ${monthName}, ${year}</p><img class="big-img" src=${iconSource}><h1>${celsius}°</h1><p>${cloudiness}</p><article><div class="icon-wrapper"><img class="icon" src="../assets/img/Wind.png"><p>${windSpeed}m/s</p></div><div class="icon-wrapper"><img class="icon" src="../assets/img/Clouds.png"><p>${humidity}%</p></div></article><p>Sunrise: ${sunriseTime}</p><p>Sunset: ${sunsetTime}</p><p>Pressure: ${pressure} hPa</p><p>Geo Coords: [${lat}, ${lon}]</p>`;
+            const weatherOutput = `
+            <h3>${city}</h3>
+            <h4>${day} ${monthName}, ${year}</h4>
+            <img class="big-img" src=${iconSource}>
+            <h1>${celsius}°</h1>
+            <h4>${cloudiness}</h4>
+            <article>
+            <div class="icon-wrapper">
+            <img class="icon" src="../assets/img/Wind.png">
+            <p>${windSpeed}m/s</p>
+            </div>
+            <div class="icon-wrapper">
+            <img class="icon" src="../assets/img/Clouds.png">
+            <p>${humidity}%</p>
+            </div>
+            </article>
+            <div class="more-info">
+            <p>Sunrise: ${sunriseTime}</p>
+            <p>Sunset: ${sunsetTime}</p>
+            <p>Pressure: ${pressure} hPa</p>
+            <p>Geo Coords: [${lat}, ${lon}]</p>
+            </div>`;
 
             section.insertAdjacentHTML("beforeend", weatherOutput);
             section.classList.add("weather-sec");
@@ -134,11 +151,7 @@ const showWeather = () => {
 }
 
 const changeCity = () => {
-    inputWrapper.style.top = "0";
-
-    section.innerHTML = "";
-
-    section.classList.remove("weather-sec");
-
+    inputWrapper.style.top = "5rem";
+    figure.style.bottom = "-100rem";
 }
 
