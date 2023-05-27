@@ -14,6 +14,38 @@ let monate = [
     "Dezember"
 ];
 
+//=============================================
+
+let windDirection;
+
+const windDirections = [
+    { min: 349, max: 11, direction: "North" },
+    { min: 12, max: 33, direction: "North-Northeast" },
+    { min: 34, max: 56, direction: "Northeast" },
+    { min: 57, max: 78, direction: "East-Northeast" },
+    { min: 79, max: 101, direction: "East" },
+    { min: 102, max: 123, direction: "East-Southeast" },
+    { min: 124, max: 146, direction: "Southeast" },
+    { min: 147, max: 168, direction: "South-Southeast" },
+    { min: 169, max: 191, direction: "South" },
+    { min: 192, max: 213, direction: "South-Southwest" },
+    { min: 214, max: 236, direction: "Southwest" },
+    { min: 237, max: 258, direction: "West-Southwest" },
+    { min: 259, max: 281, direction: "West" },
+    { min: 282, max: 303, direction: "West-Northwest" },
+    { min: 304, max: 326, direction: "Northwest" },
+    { min: 327, max: 348, direction: "North-Northwest" }
+];
+
+function getWindDirection(degrees) {
+  const direction = windDirections.find((item) => {
+    return degrees >= item.min && degrees <= item.max;
+  });
+
+  return direction ? direction.direction : "";
+}
+
+//=============================================
 
 const apiKey = "a6e012a98e34998e8b669a4195e190cb";
 const section = document.querySelector("section");
@@ -116,6 +148,10 @@ const showWeather = () => {
                 }
             }
 
+            let i = data.wind.deg;
+            windDirection = getWindDirection(i);
+            console.log(windDirection);
+
             const weatherOutput = `
             <h3>${city}</h3>
             <h4>${day} ${monthName}, ${year}</h4>
@@ -123,6 +159,10 @@ const showWeather = () => {
             <h1>${celsius}°</h1>
             <h4>${cloudiness}</h4>
             <article>
+            <div class="icon-wrapper">
+            <img class="icon" src="../assets/img/windsock.png">
+            <p>${windDirection}</p>
+            </div>
             <div class="icon-wrapper">
             <img class="icon" src="../assets/img/Wind.png">
             <p>${windSpeed}m/s</p>

@@ -67,6 +67,8 @@ p {
   font-size: 1.5rem;
 }
 
+/* images */
+
 .big-img {
   height: 13rem;
   margin: 0 0 3rem 0;
@@ -76,11 +78,21 @@ p {
   height: 2rem;
 }
 
+/* main styles */
+
+main {
+  height: 100vh;
+  background: linear-gradient(30deg, var(--color-bg), var(--color-gradient));
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
 article {
   width: 100%;
+  text-align: center;
   display: flex;
   margin: 0 0 1.5rem 0;
-  text-align: center;
 }
 
 .icon-wrapper {
@@ -88,14 +100,16 @@ article {
   width: 50%;
 }
 
-main {
-  height: 100vh;
-  background: linear-gradient(30deg, var(--color-bg), var(--color-gradient));
-
-  /* background-color: var(--color-bg); */
+section {
+  width: 35rem;
+  height: 65rem;
+  border-radius: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem;
-  position: relative;
-  overflow: hidden;
+  margin: 0 auto 2rem auto;
+  transition: 2s ease-in-out;
 }
 
 .weather-sec {
@@ -108,34 +122,62 @@ main {
   transition: 2s ease-in-out;
 }
 
+figure {
+  width: 100%;
+  height: 71.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: -100rem;
+  transition: 1s ease-in-out;
+}
+
+.more-info {
+  width: 100%;
+  background-color: var(--color-gradient);
+  border-radius: 1rem;
+  border: 0.5px solid var(--color-light-transparent);
+  padding: 2rem;
+}
+
+/* input */
+
+form {
+  width: 50rem;
+  position: relative;
+  transition: 1s ease-in-out;
+  margin: 0 auto;
+}
+
 input {
   display: block;
 }
 
+input[type="submit"],
 input[type="text"] {
-  width: 50rem;
   height: 4rem;
   border-radius: 1.5rem;
-  border: 2px solid var(--color-accent);
+  transition: 0.5s ease-in-out;
+  margin: 0 auto 2rem auto;
+}
+
+input[type="text"] {
+  width: 50rem;
   color: var(--color-gradient);
   background-color: var(--color-text);
+  border: 2px solid var(--color-accent);
   padding: 1rem;
-  margin: 0 auto 2rem auto;
-  transition: 0.5s ease-in-out;
 }
+
 input[type="text"]:hover {
   background-color: white;
 }
 
 input[type="submit"] {
   width: 20rem;
-  height: 4rem;
   background-color: var(--color-accent);
-
   border: none;
-  border-radius: 1.5rem;
-  margin: 0 auto 2rem auto;
-  transition: 0.5s ease-in-out;
 }
 
 input[type="submit"]:hover {
@@ -144,18 +186,13 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
-form {
-  width: 50rem;
-  margin: 0 auto;
-  position: relative;
-  transition: 1s ease-in-out;
-}
-
 .input-wrapper {
   position: absolute;
   top: 5rem;
   transition: 1.5s ease-in-out;
 }
+
+/* button */
 
 button {
   width: 20rem;
@@ -171,43 +208,3 @@ button:hover {
   color: var(--color-gradient);
   cursor: pointer;
 }
-
-figure {
-  width: 100%;
-  height: 70rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  bottom: -100rem;
-  transition: 1s ease-in-out;
-}
-
-section {
-  width: 35rem;
-  height: 62rem;
-  border-radius: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  margin: 0 auto 2rem auto;
-  transition: 2s ease-in-out;
-}
-
-.more-info {
-  width: 100%;
-  /* background: linear-gradient(
-    180deg,
-    var(--color-light-transparent) 10%,
-    var(--color-mid-transparent) 100%
-  ); */
-  background-color: var(--color-gradient);
-  border-radius: 1rem;
-  border: 0.5px solid var(--color-light-transparent);
-  padding: 2rem;
-}
-
-/* .more-info p {
-  color: var(--color-info);
-} */
